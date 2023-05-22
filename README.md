@@ -1,2 +1,8 @@
 # yauhenimalakhouski.github.io
-Films of the star wars universe
+
+Educational project.
+The Star Wars Movie App.
+
+How to open it:
+Follow the link: yauhenimalakhouski.github.io 
+
