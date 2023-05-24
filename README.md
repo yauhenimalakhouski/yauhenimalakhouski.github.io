@@ -1,6 +1,6 @@
 # yauhenimalakhouski.github.io
 
-Educational project.
+An educational project developed in JavaScript.
 The Star Wars Movie App.
 
 How to open it:
