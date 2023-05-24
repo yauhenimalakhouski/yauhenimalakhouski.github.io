@@ -1,4 +1,10 @@
-// import { EN } from './dictionaries/en.js';
+import { EN } from './dictionaries/en.js';
+import { RU } from './dictionaries/ru.js';
+
+const DICTIONARIES = {
+    'en': EN,
+    'ru': RU,
+  }
 
 
 let localData = restoreItems();

@@ -20,7 +20,4 @@ const FILMS_TRAILERS = [
   "https://www.youtube.com/embed/sGbxmsDFVnE",
 ];
 
-const DICTIONARIES = {
-  'en': EN,
-  'ru': RU,
-}
+
