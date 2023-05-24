@@ -59,10 +59,10 @@ async function getDataFilms() {
   return data;
 }
 
-function getSelectedLang() {
-  if(localData.lang === undefined){
-    return;
-  }
-  const select = document.querySelector(`[value = ${localData.lang}]`)
-  select.setAttribute('selected', '');
-}
+// function getSelectedLang() {
+//   if(localData.lang === undefined){
+//     return;
+//   }
+//   const select = document.querySelector(`[value = ${localData.lang}]`)
+//   select.setAttribute('selected', '');
+// }

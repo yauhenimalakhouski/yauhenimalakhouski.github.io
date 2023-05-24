@@ -1,33 +1,8 @@
-
-
-
 let localData = restoreItems();
-let favorites = restoreFavoriteItems();
 let currentLang = localData.lang || 'en';
 
 getTheme();
-generateFavoriteFilms();
 renderSelectLang();
-
-
-function generateFavoriteFilms() {
-    const container = document.querySelector('.favorites-films');
-    container.innerHTML = '';
-    favorites.forEach(film => {
-        let filmContainer = document.createElement('div');
-        filmContainer.classList.add('favorite-film');
-        filmContainer.innerHTML = `
-        <a href="film.html?episode=${+film.episode}" >Episode ${film.episode} - ${film.title}</a>
-        `;
-        container.append(filmContainer);
-    });
-}
-
-function toogleFavoritesFilms () {
-    const container = document.querySelector('.favorites-films');
-    container.classList.toggle('opened');
-}
-
 
 function changeTheme() {
     const btn = document.querySelector('#toggle-theme');
@@ -52,6 +27,14 @@ function getTheme() {
     } else {
         btn.value = 'Dark';
     }
+}
+
+function getSelectedLang() {
+    if(localData.lang === undefined){
+      return;
+    }
+    const select = document.querySelector(`[value = ${localData.lang}]`)
+    select.setAttribute('selected', '');
 }
 
 function renderSelectLang() {
