@@ -65,7 +65,3 @@ const RU = {
     'more-information': 'Дополнительная информация',
     'film-participation': 'Фильмы с участием',
 };
-
-
-
-// export { RU };

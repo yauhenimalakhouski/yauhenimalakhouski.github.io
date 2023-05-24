@@ -65,7 +65,3 @@ const EN = {
     'more-information': 'More information',
     'film-participation': 'Films with the participation of',
 };
-
-
-
-// export { EN };
