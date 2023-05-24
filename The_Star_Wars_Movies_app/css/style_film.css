@@ -165,10 +165,25 @@ body {
 		color:rgb(134, 130, 130);
 	}
 
+	.loader-page {
+		display: block;
+		position: absolute;
+		top: calc(50% - 32px);
+		left: calc(50% - 32px);
+		width: 64px;
+		height: 64px;
+		border-radius: 50%;
+		perspective: 800px;
+	}
+
+	.loader-page.hide {
+		display: none;
+	}
+
 	.loader.show {
 		display: block;
 	}
-	
+
 	.loader {
 		display: none;
 		position: absolute;
@@ -179,6 +194,8 @@ body {
 		border-radius: 50%;
 		perspective: 800px;
 	}
+
+	
 	
 	#loadMore {
 		display: none;

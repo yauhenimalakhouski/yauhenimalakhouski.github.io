@@ -10,12 +10,11 @@
 	<meta name="x-rim-auto-match" content="none" forua="true">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 	<title>The Star Wars</title>
+	
 	<link rel="icon" href="images/icon.svg" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="css/style_film.css">
-	<script src="js/dictionaries/en.js"></script>
-	<script src="js/dictionaries/ru.js"></script>
-	<script src="js/consts.js"></script>
-	<script src="js/pre_loading.js"></script>
+	<script src="js/utils.js"></script>
+	<script src="js/theme_preload.js"></script>
 	<script src="https://kit.fontawesome.com/2e48e340d0.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -40,6 +39,11 @@
 		</div>	
 	</header>
 	<main class="main">
+		<div class="loader-page">
+			<div class="inner one"></div>
+			<div class="inner two"></div>
+			<div class="inner three"></div>
+		</div>
 		<div class="film-wrapper">
 			<div class="main-info"></div>
 			<div class="trailer-container"></div>
@@ -79,9 +83,9 @@
 		</div>
 	</footer>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js"></script>
-	<!-- <script src="js/dictionaries/en.js"></script>
-	<script src="js/dictionaries/ru.js"></script> -->
-	<script src="js/utils.js"></script>	
+	<script src="js/dictionaries/en.js"></script>
+	<script src="js/dictionaries/ru.js"></script>
+	<script src="js/consts.js"></script>
 	<script src="js/app_header.js"></script>
 	<script src="js/app_film.js"></script>	
 </body>

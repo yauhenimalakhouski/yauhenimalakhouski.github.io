@@ -1,6 +1,3 @@
-// import { EN } from './dictionaries/en.js';
-// import { RU } from './dictionaries/ru.js';
-
 const FILMS_IMG = [
   "images/episode1.png",
   "images/episode2.png",
@@ -24,7 +21,6 @@ const FILMS_TRAILERS = [
 ];
 
 const DICTIONARIES = {
-    'en': EN,
-    'ru': RU,
-  }
-
+  'en': EN,
+  'ru': RU,
+}

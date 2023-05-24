@@ -1,3 +1,4 @@
+changeLagnuage(currentLang);
 const searchParams = new URLSearchParams(location.search);
 let characterId = +searchParams.get("characterid") || 0;
 

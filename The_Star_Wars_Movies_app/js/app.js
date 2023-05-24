@@ -1,9 +1,7 @@
+changeLagnuage(currentLang);
 generateAllFilms();
 
 let items;
-
-// let localData = restoreItems();
-// let favorites = restoreFavoriteItems();
 
 const buttonTile = document.querySelector('.tile-view');
 const buttonTable = document.querySelector('.table-view');

@@ -1,3 +1,4 @@
+changeLagnuage(currentLang);
 const searchParams = new URLSearchParams(location.search);
 let episodeNumber = ORDER_OF_FILMS[(searchParams.get("episode")-1) || 0];
 
@@ -28,6 +29,7 @@ async function getDataCharacters() {
 }
 
 async function renderFilmInfo() {
+  const loaderPage = document.querySelector('.loader-page');
   const film = await getDataFilm(episodeNumber);
   const container = document.querySelector(".main-info");
   const release = moment(`${film.release_date}`).format("YYYY MMMM Do");
@@ -66,12 +68,12 @@ async function renderFilmInfo() {
     </ul>
     
   </div>
-  <div class="film-text">${film.opening_crawl
-  }</div>
+  <div class="film-text">${film.opening_crawl}</div>
   `;
   container.innerHTML = html;
   const title = document.querySelector('.main-characters-title');
   title.classList.add('show');
+  loaderPage.classList.add('hide');
 }
 
 function renderFilmTrailer(episode) {

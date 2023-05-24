@@ -25,7 +25,8 @@
 	}
   }
   
-.loader .inner {
+.loader .inner,
+.loader-page .inner {
 	position: absolute;
 	box-sizing: border-box;
 	width: 100%;
@@ -33,21 +34,24 @@
 	border-radius: 50%;  
 }
 	
-.loader .inner.one {
+.loader .inner.one,
+.loader-page .inner.one {
 	left: 0%;
 	top: 0%;
 	animation: rotate-one 1s linear infinite;
 	border-bottom: 3px solid var(--loader-color);
 }
 	
-.loader .inner.two {
+.loader .inner.two,
+.loader-page .inner.two {
 	right: 0%;
 	top: 0%;
 	animation: rotate-two 1s linear infinite;
 	border-right: 3px solid var(--loader-color);
 }
 	
-.loader .inner.three {
+.loader .inner.three,
+.loader-page .inner.three {
 	right: 0%;
 	bottom: 0%;
 	animation: rotate-three 1s linear infinite;
