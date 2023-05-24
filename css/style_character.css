@@ -1,0 +1,228 @@
+@import url("FuturaPT-Medium/style.css");
+@import url("style_header_footer.css");
+@import url("style_loader.css");
+
+body {
+		margin: 0; 
+		font-family: 'Futura PT', sans-serif;
+		font-size: 16px;
+		box-sizing: border-box;
+		background: var(--body-background-color);
+	}
+
+	.main {
+		background: var(--primiry-background-color);
+		min-height: 100vh;
+		width: 75%;
+		margin: 0 12.5%;
+	}
+
+	.character-wrapper {
+		display: flex;
+		gap: 50px;
+		margin: 0 auto;
+		width: 80%;
+		color: var(--primiry-text-color);
+		font-size: 20px;
+		padding: 50px 0 30px;
+	}
+
+	.character-photo {
+		width: 40%;
+		object-fit: cover;
+		border-radius: 20px;
+	}
+
+	.character-info {
+		width: 60%;
+	}
+
+	.character-name {
+		margin: 0 0 20px;
+		font-weight: bold;
+		color: var(--text-highlight);
+	}
+
+	.character-title {
+		color: #5043af
+	}
+
+	.list {
+		list-style-type: none;
+		padding-inline-start: 0;
+	}
+
+	.list li {
+		display: flex;
+		justify-content: space-between;
+		text-transform: capitalize;
+		line-height: 1em;
+		margin-bottom: 10px;
+	}
+
+	.list span:first-child:not(.wiki) {
+		color:rgb(134, 130, 130);
+	}
+	
+	.more-info a {
+		margin-top: 30px;
+		text-decoration: none;
+		font-size: 24px;
+		font-weight: bold;
+		color: #075a94;
+		display: flex;
+		gap: 5px;
+	}
+
+	.item__dotted {
+		border-bottom: 0.5px dashed var(--primiry-text-color);
+		flex-grow: 1;
+	}
+
+	.films-wrapper {
+		margin: 0 auto;
+		display: flex;
+		flex-wrap: wrap;
+		width: 80%;
+		gap: 20px;
+		padding-bottom: 50px;
+	}
+
+	.title-films {
+		margin-left: 10%;
+		color: var(--primiry-text-color)
+	}
+
+	.film {
+		width: 23%;
+	}
+
+	.films-wrapper .film-img {
+		margin: 0 auto;
+		width: 100%;
+		object-fit: cover;
+		border-radius: 10px;
+	}
+
+	.film a {
+		text-decoration: none;
+		color: var(--primiry-text-color);
+		font-size: 22px;
+	}
+
+	.wiki {
+		text-transform: uppercase;
+	}
+
+	.loader.hide {
+		display: none;
+	}
+	
+	.loader {
+		display:block;
+		position: absolute;
+		top: calc(50% - 32px);
+		left: calc(50% - 32px);
+		width: 64px;
+		height: 64px;
+		border-radius: 50%;
+		perspective: 800px;
+	}
+
+	@media only all and (max-width: 1440px) {
+
+		.main {
+			margin: 0;
+			width: 100%;
+		}
+	}
+
+	@media only all and (max-width: 1024px) {
+
+		.character-name {
+			font-size: 30px;
+		}
+
+		.character-title {
+			font-size: 26px;
+		}
+			
+		.character-wrapper {
+			gap: 20px;
+			width: 90%;
+			font-size: 18px;
+		}
+
+		.more-info a {
+			margin-top: 20px;
+			font-size: 20px;
+		}
+
+		.films-wrapper {
+			margin: 0 20px;
+			width: 90%;
+			padding-bottom: 30px;
+		}
+
+		.title-films {
+			margin-left: 5%;
+			font-size: 24px;
+		}
+	}
+
+	@media only all and (max-width: 640px) {
+
+		.character-name {
+			font-size: 26px;
+		}
+
+		.character-title {
+			font-size: 22px;
+		}
+			
+		.character-wrapper {
+			font-size: 16px;
+			width: 90%;
+		}
+
+		.more-info a {
+			font-size: 18px;
+		}
+
+		.film a {
+			font-size: 18px;
+		}
+	}
+
+	@media only all and (max-width: 425px) {
+		.character-wrapper {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 20px;
+			width: 90%;
+			font-size: 16px;
+			align-items: center;
+			margin: 0 20px;
+		}
+
+		.character-photo {
+			width: 90%;
+			grid-column: 1/2;
+			grid-row: 1/2;
+		}
+
+		.character-info {
+			grid-column: 1/2;
+			grid-row: 2/3;
+			width: 90%;
+		}
+
+		.title-films {
+			font-size: 18px;
+		}
+
+		.film a {
+			font-size: 14px;
+		}
+	
+	}

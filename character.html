@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="cleartype" content="on"/>
+	<meta name="HandheldFriendly" content="True"/>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="format-detection" content="address=no"/>
+	<meta name="x-rim-auto-match" content="none" forua="true">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<title>The Star Wars</title>
+	<script src="https://kit.fontawesome.com/2e48e340d0.js" crossorigin="anonymous"></script>
+	<link rel="icon" href="images/icon.svg" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="css/style_character.css">
+</head>
+<body>
+	<header class="header">
+		<div class="logo">
+			<a href="index.html" title="main">
+				<img src="images\logo.svg" alt="logo" title="logo">
+			</a>			
+		</div>
+		<div class="search-bar">
+			<input type="text" id="search_input" autofocus placeholder="Поиск по номеру эпизода, названию эпизода" oninput="searchFilms()" disabled>
+		</div>	
+		<div class="settings">		
+			<div class="page-theme">
+				<input type="button" value="" id="toggle-theme" onclick="changeTheme(this)"/>	
+			</div>
+			<div class="localization"></div>
+			<div class="favorites-films-container">
+				<button type="button" id="btn-favorites" data-lang-key="button-favorites" onclick="toogleFavoritesFilms()">Favorites films</button>
+				<div class="favorites-films"></div>
+			</div>
+		</div>	
+	</header>
+	<main class="main">
+		<div class="character-wrapper"></div>
+		<div class="loader">
+			<div class="inner one"></div>
+			<div class="inner two"></div>
+			<div class="inner three"></div>
+		</div>
+		<div class="character-films-info">
+			<h1 class="title-films"></h1>
+			<div class="films-wrapper"></div>
+		</div>
+	</main>
+	<footer class="footer">
+		<div class="copyright-text">
+			<span>&REG; </span>
+			<span data-lang-key="copyright">ALL RIGHTS RESERVED</span>
+		</div>
+		<div class="social-icon">
+			<a href="https://www.facebook.com" target="_blank">
+				<i class="fa-brands fa-facebook fa-beat fa-lg" style="color: #454d5f;"></i>
+			</a>
+			<a href="https://vk.com" target="_blank">
+				<i class="fa-brands fa-vk fa-beat fa-lg" style="color: #454d5f;"></i>
+			</a>
+			<a href="https://twitter.com" target="_blank">
+				<i class="fa-brands fa-square-twitter fa-beat fa-lg" style="color: #454d5f;"></i>
+			</a>
+			<a href="https://www.instagram.com" target="_blank">
+				<i class="fa-brands fa-square-instagram fa-beat fa-lg" style="color: #454d5f;"></i>
+			</a>
+		</div>
+	</footer>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js"></script>
+	<script src="js/dictionaries/en.js"></script>
+	<script src="js/dictionaries/ru.js"></script>
+	<script src="js/consts.js"></script>
+	<script src="js/utils.js"></script>	
+	<script src="js/app_header.js"></script>
+	<script src="js/app_character.js"></script>	
+</body>
+</html>
+
