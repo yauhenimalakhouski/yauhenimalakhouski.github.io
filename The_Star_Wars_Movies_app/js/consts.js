@@ -1,5 +1,5 @@
-import { EN } from './dictionaries/en.js';
-import { RU } from './dictionaries/ru.js';
+// import { EN } from './dictionaries/en.js';
+// import { RU } from './dictionaries/ru.js';
 
 const FILMS_IMG = [
   "images/episode1.png",
