@@ -3,6 +3,6 @@
 An educational project developed in JavaScript.
 The Star Wars Movie App.
 
-How to open it:
-Follow the link: <a href="https://yauhenimalakhouski.github.io/The Star Wars Movies app/index.html" target="_blank">yauhenimalakhouski.github.io</a> 
+How to open it:<br>
+Follow the link: <a href="https://yauhenimalakhouski.github.io/The_Star_Wars_Movies_app/index.html" target="_blank">yauhenimalakhouski.github.io</a> 
 
