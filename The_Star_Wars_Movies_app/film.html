@@ -24,7 +24,7 @@
 			</a>			
 		</div>
 		<div class="search-bar">
-			<input type="text" id="search_input" autofocus placeholder="Поиск по номеру эпизода, названию эпизода" oninput="searchFilms()" disabled>
+			<input type="text" id="search_input" autofocus placeholder="Search by Episode Number, Episode Title" oninput="searchFilms()" disabled>
 		</div>	
 		<div class="settings">		
 			<div class="page-theme">
@@ -38,14 +38,80 @@
 		</div>	
 	</header>
 	<main class="main">
-		<div class="loader-page">
-			<div class="inner one"></div>
-			<div class="inner two"></div>
-			<div class="inner three"></div>
-		</div>
 		<div class="film-wrapper">
-			<div class="main-info"></div>
-			<div class="trailer-container"></div>
+			<div class="main-info">
+				<img class='film-cover skeleton'>
+  				<div class="description">
+    				<div class='episode-number loading'>
+						<div class="skeleton-text skeleton"></div>
+					</div>
+    				<div class='episode-title loading'>
+						<div class="skeleton-text skeleton"></div>
+					</div>
+    				<h2 class="loading">
+						<div class="skeleton-text skeleton"></div>
+					</h2>
+					<ul class="about-film">
+						<li class='release-date loading'>
+							<span>
+								<div class="skeleton-text skeleton"></div>
+							</span>
+							<span>
+								<div class="skeleton-text skeleton"></div>
+							</span>
+						</li>
+						<li class='country loading'>
+							<span>
+								<div class="skeleton-text skeleton"></div>
+							</span>
+							<span>
+								<div class="skeleton-text skeleton"></div>
+							</span>
+						</li>
+						<li class='genre loading'>
+							<span>
+								<div class="skeleton-text skeleton"></div>
+							</span>
+							<span>
+								<div class="skeleton-text skeleton"></div>
+							</span>
+						</li>
+						<li class='director loading'>
+							<span>
+								<div class="skeleton-text skeleton"></div>
+							</span>
+							<span>
+								<div class="skeleton-text skeleton"></div>
+							</span>
+						</li>
+						<li class='screenwriter loading'>
+							<span>
+								<div class="skeleton-text skeleton"></div>
+							</span>
+							<span>
+								<div class="skeleton-text skeleton"></div>
+							</span>
+						</li>
+						<li class='producer loading'>
+							<span>
+								<div class="skeleton-text skeleton"></div>
+							</span>
+							<span>
+								<div class="skeleton-text skeleton"></div>
+							</span>
+						</li>
+					</ul>
+  				</div>
+  				<div class="film-text">
+					<div class="skeleton-text skeleton"></div>
+					<div class="skeleton-text skeleton"></div>
+					<div class="skeleton-text skeleton"></div>
+					<div class="skeleton-text skeleton"></div>
+				</div>
+			</div>
+			<div class="trailer-container">
+				<div class="trailer skeleton"></div>
+			</div>
 			<div class="main-characters">
 				<h3 class="main-characters-title"><span data-lang-key="main-characters">Main characters</span><span><i class="fa-solid fa-angles-right"></i></span></h3>
 				<ol class="characters"></ol>
@@ -64,7 +130,7 @@
 	<footer class="footer">
 		<div class="copyright-text">
 			<span>&REG; </span>
-			<span data-lang-key="copyright">ALL RIGHTS RESERVED</span>
+			<span data-lang-key="copyright"> 2023 ALL RIGHTS RESERVED</span>
 		</div>
 		<div class="social-icon">
 			<a href="https://www.facebook.com" target="_blank">

@@ -1,7 +1,7 @@
 changeLagnuage(currentLang);
 const searchParams = new URLSearchParams(location.search);
 let characterId = +searchParams.get("characterid") || 0;
-
+let filmId = +searchParams.get("filmid") || 0;
 renderCharacterPage();
 
 async function getDataCharacter(characterId) {
@@ -11,11 +11,9 @@ async function getDataCharacter(characterId) {
 }
 
 async function renderCharacter() {
-  const loader = document.querySelector('.loader');
   const character = await getDataCharacter(characterId);
-  console.log(character)
-  const container = document.querySelector('.character-wrapper');
-  container.innerHTML = `
+  const characterContainer = document.querySelector('.character-wrapper');
+  characterContainer.innerHTML = `
   <img src="${character.image}" alt="" class="character-photo">
   <div class="character-info">
     <h1 class="character-name">${character.name}</h1>
@@ -75,16 +73,16 @@ async function renderCharacter() {
     </ul>
   </div>  
   `;
-  loader.classList.add('hide');
 }
 
 async function renderFilms() {
+  const loader = document.querySelector('.loader');
   const character = await getDataCharacter(characterId);
   const allFilms = await getDataFilms();
   let characterFilms = [];
-  const container = document.querySelector('.films-wrapper');
-  const titlecontainer = document.querySelector('.title-films');
-  titlecontainer.innerHTML = ` 
+  const filmsContainer = document.querySelector('.films-wrapper');
+  const titleContainer = document.querySelector('.title-films');
+  titleContainer.innerHTML = ` 
     <span data-lang-key="film-participation">Films with the participation of</span>
     <span class="title-films-name">${character.name}</span> 
   `;
@@ -93,7 +91,7 @@ async function renderFilms() {
     characterFilms.push(film);
   });
 
-  characterFilms.map((film) => {
+  characterFilms.forEach((film) => {
     let filmContainer = document.createElement('div');
     filmContainer.classList.add('film');
     filmContainer.innerHTML = `
@@ -103,12 +101,14 @@ async function renderFilms() {
       <div>${film.title}</div>
     </a>
     `
-    container.append(filmContainer);
+    filmsContainer.append(filmContainer);
+    loader.classList.add('hide');    
   });
 }
 
 async function renderCharacterPage(){
   await renderCharacter();
   await renderFilms();
+  removeLoadingStyle();
   changeLagnuage(currentLang);
 }

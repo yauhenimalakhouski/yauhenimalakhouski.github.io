@@ -24,7 +24,7 @@
 			</a>			
 		</div>
 		<div class="search-bar">
-			<input type="text" id="search_input" autofocus placeholder="Поиск по номеру эпизода, названию эпизода" oninput="searchFilms()" disabled>
+			<input type="text" id="search_input" autofocus placeholder="Search by Episode Number, Episode Title" oninput="searchFilms()" disabled>
 		</div>	
 		<div class="settings">		
 			<div class="page-theme">
@@ -38,21 +38,125 @@
 		</div>	
 	</header>
 	<main class="main">
-		<div class="character-wrapper"></div>
-		<div class="loader">
-			<div class="inner one"></div>
-			<div class="inner two"></div>
-			<div class="inner three"></div>
+		<div class="character-wrapper">
+			<img class="character-photo skeleton">
+			<div class="character-info">
+				<h1 class="character-name loading">
+					<div class="skeleton-text skeleton"></div>
+				</h1>
+				<h2 class="character-title loading">
+					<div class="skeleton-text skeleton"></div>
+				</h2>
+				<ul class="bio-info list">
+					<li class="homeworld loading">
+						<span>
+							<div class="skeleton-text skeleton"></div>
+						</span>
+						<span class="item__dotted"></span>
+						<span>
+							<div class="skeleton-text skeleton"></div>
+						</span>
+					</li>
+					<li class="born loading">
+						<span data-lang-key="born skeleton">
+							<div class="skeleton-text skeleton"></div>
+						</span>
+						<span class="item__dotted"></span>
+						<span>
+							<div class="skeleton-text skeleton"></div>
+						</span>
+					</li>
+				</ul>
+				<h2 class="character-title loading">
+					<div class="skeleton-text skeleton"></div>
+				</h2>
+				<ul class="physic-info list">
+					<li class="species loading">
+						<span>
+							<div class="skeleton-text skeleton"></div>
+						</span>
+						<span class="item__dotted"></span>
+						<span>
+							<div class="skeleton-text skeleton"></div>
+						</span>
+					</li>
+					<li class="gender loading">
+						<span>
+							<div class="skeleton-text skeleton"></div>
+						</span>
+						<span class="item__dotted"></span>
+						<span>
+							<div class="skeleton-text skeleton"></div>
+						</span>
+					</li>
+					<li class="height loading">
+						<span>
+							<div class="skeleton-text skeleton"></div>
+						</span>
+						<span class="item__dotted"></span>
+						<span>
+							<div class="skeleton-text skeleton"></div>
+						</span>
+					</li>
+					<li class="mass loading">
+						<span>
+							<div class="skeleton-text skeleton"></div>
+						</span>
+						<span class="item__dotted"></span>
+						<span>
+							<div class="skeleton-text skeleton"></div>
+						</span>
+					</li>
+					<li class="hair-color loading">
+						<span>
+							<div class="skeleton-text skeleton"></div>
+						</span>
+						<span class="item__dotted"></span>
+						<span>
+							<div class="skeleton-text skeleton"></div>
+						</span>
+					</li>
+					<li class="eye-color loading">
+						<span>
+							<div class="skeleton-text skeleton"></div>
+						</span>
+						<span class="item__dotted"></span>
+						<span>
+							<div class="skeleton-text skeleton"></div>
+						</span>
+					</li>
+					<li class="skin-color loading">
+						<span>
+							<div class="skeleton-text skeleton"></div>
+						</span>
+						<span class="item__dotted"></span>
+						<span>
+							<div class="skeleton-text skeleton"></div>
+						</span>
+					</li>
+					<li class="more-info loading">
+						<div class="skeleton-text skeleton"></div>
+					</li>  
+				</ul>
+			</div> 
 		</div>
 		<div class="character-films-info">
-			<h1 class="title-films"></h1>
-			<div class="films-wrapper"></div>
+			<h1 class="title-films loading">
+				<div class="skeleton-text skeleton"></div>
+			</h1>
+			<div class="films-wrapper loading">
+				<div class="loader">
+					<div class="inner one"></div>
+					<div class="inner two"></div>
+					<div class="inner three"></div>
+				</div>
+			</div>
 		</div>
 	</main>
 	<footer class="footer">
 		<div class="copyright-text">
 			<span>&REG; </span>
-			<span data-lang-key="copyright">ALL RIGHTS RESERVED</span>
+			<span data-lang-key="copyright"> 2023 ALL RIGHTS RESERVED</span>
 		</div>
 		<div class="social-icon">
 			<a href="https://www.facebook.com" target="_blank">
@@ -74,7 +178,7 @@
 	<script src="js/dictionaries/ru.js"></script>
 	<script src="js/consts.js"></script>
 	<script src="js/app_header.js"></script>
-	<script src="js/app_character.js"></script>	
+	<script src="js/app_character.js"></script>		
 </body>
 </html>
 

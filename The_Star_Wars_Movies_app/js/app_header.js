@@ -4,59 +4,45 @@ let currentLang = localData.lang || 'en';
 
 generateFavoriteFilms();
 renderSelectLang();
-renderValueOfTheme();
 
 function generateFavoriteFilms() {
-    const container = document.querySelector('.favorites-films');
-    container.innerHTML = '';
+    const favoritesContainer = document.querySelector('.favorites-films');
+    favoritesContainer.innerHTML = '';
     favorites.forEach(film => {
         let filmContainer = document.createElement('div');
         filmContainer.classList.add('favorite-film');
         filmContainer.innerHTML = `
         <a href="film.html?episode=${+film.episode}" >Episode ${film.episode} - ${film.title}</a>
         `;
-        container.append(filmContainer);
+        favoritesContainer.append(filmContainer);
     });
 }
 
 function toogleFavoritesFilms () {
-    const container = document.querySelector('.favorites-films');
-    container.classList.toggle('opened');
+    const favoritesContainer = document.querySelector('.favorites-films');
+    favoritesContainer.classList.toggle('opened');
 }
 
-
 function changeTheme() {
-    const btn = document.querySelector('#toggle-theme');
     if (document.documentElement.hasAttribute('theme')) {
         document.documentElement.removeAttribute('theme');
-        btn.value = 'Dark';
         delete localData.theme;
         storeItems();
     } else {
         document.documentElement.setAttribute('theme', 'light');
-        btn.value = 'Light';
         localData.theme = 'light';
         storeItems();
     }
 }
 
-function renderValueOfTheme() {
-    const btn = document.querySelector('#toggle-theme');
-    if(localData.theme) {
-        btn.value = 'Light';
-    } else {
-        btn.value = 'Dark';
-    }
-}
-
 function renderSelectLang() {
-    const container = document.querySelector('.localization');
-    container.innerHTML = `
+    const langContainer = document.querySelector('.localization');
+    langContainer.innerHTML = `
         <select onchange="getLanguage(this)" class="lang-select">
 			<option value="en" class="english">EN</option>
 			<option value="ru" class="russian">RU</option>
 		</select>
-    `
+    `;
     getSelectedLang();
 }
 
@@ -64,7 +50,7 @@ function getLanguage(selectElement) {
     changeLagnuage(selectElement.value);
 }
 
-function changeLagnuage(lang){
+function changeLagnuage(lang) {
     const dictionary = DICTIONARIES[lang];
     localData.lang = lang;
     storeItems();
@@ -73,4 +59,14 @@ function changeLagnuage(lang){
         const translateKey = elem.dataset.langKey;
         elem.textContent = dictionary[translateKey];
     });
+    searchPlaceholderLangChange();
+}
+
+function searchPlaceholderLangChange() {
+    const searchInput = document.querySelector('#search_input');
+    if(localData.lang === "ru") {
+        searchInput.setAttribute('placeholder', 'Поиск по номеру эпизода, названию эпизода');
+    } else {
+        searchInput.setAttribute('placeholder', 'Search by Episode Number, Episode Title');
+    }
 }

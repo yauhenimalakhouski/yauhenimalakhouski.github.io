@@ -1,29 +1,31 @@
 :root {
 	--header-footer-color: black;
-	--primiry-background-color: rgb(0, 0, 0, 0.95);
-	--body-background-color: linear-gradient(90deg, #f6f7f8,#e1e8f2,#d9e1ee);
+	--primiry-background-color: rgb(20, 20, 20, 0.95);
+	--body-background-color: linear-gradient(90deg, #000000,#4f7a28,#000000);
 	--primiry-text-color: azure;
 	--secondary-text-color: white;
 	--table-border: rgba(255, 255, 255, 0.5);
-	--theme-btn-background: rgb(245,245,245) linear-gradient(#f4f4f4, #f1f1f1);
 	--text-highlight: #d6bb00;
-	--character-background: rgb(0, 0, 0, 0.95);
+	--character-background: rgb(20, 20, 20, 0.95);
 	--neon-border: rgba(0,255,255,0.7);
 	--loader-color: #EFEFFA;
+	--film-boxshadow: #eaeaea;
+	--color-scheme-icon: url(../images/moon-active.svg);
 }
 
 :root[theme='light'] {
-	--header-footer-color: #212517;
+	--header-footer-color: #b2c1d8;
 	--primiry-background-color: #d1d9e7;
-	--body-background-color: linear-gradient(90deg, #000000,#4f7a28,#000000);
+	--body-background-color: linear-gradient(90deg, #f6f7f8,#e1e8f2,#d9e1ee);
 	--primiry-text-color: rgba(8, 8, 8, 0.95);
 	--secondary-text-color: black;
 	--table-border: rgba(8, 8, 8, 0.50);
-	--theme-btn-background: #d3deff;
-	--text-highlight: #41ac26;
+	--text-highlight: #008B8B;
 	--character-background: rgba(231, 218, 218, 0.699);
 	--neon-border: rgba( 188,19,254,0.7);
 	--loader-color: #222224;
+	--film-boxshadow: #070707;
+	--color-scheme-icon: url(../images/sun-active.svg);
 }
 
 
@@ -59,7 +61,7 @@
 	border: 0;
 	background: url('../images/icon_search.svg') rgb(165, 160, 160) no-repeat 98% 50%;
 	background-size: 20px;
-	padding-right: 30px;
+	padding: 0 30px 0 15px;
 }
 
 #search_input:focus {
@@ -75,35 +77,70 @@
 }
 
 #toggle-theme {
-	width: 80px;
+	width: 30px;
 	height: 30px;
 	font-weight: bold;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
 	border-radius: 5px;
-	background-color: var(--theme-btn-background);
+	background: var(--color-scheme-icon) no-repeat 50% 50% rgb(0, 0, 0, 0.95);
+	background-size: 75%;
 	color: var(--primiry-text-color);
     padding: 5px;
 	position: absolute;
-	top: 33px;
-	right: 220px;
+	top: 35px;
+	right: 230px;
+	box-shadow: 2px 2px 2px 1px rgba(245, 245, 245, 0.5);
+	cursor: pointer;
+}
+
+#toggle-theme:hover {
+	background-color: rgb(39, 37, 37);
 }
 
 .lang-select {
-  width: 50px;
-  height: 30px;
-  text-align: center;
-  border-radius: 5px;
-  position: absolute;
-  top: 33px;
-  right: 160px;
-  background-color: #d3deff;
-  font-weight: bold;
+	appearance: none;
+	outline: 0;
+	border: 0;
+	box-shadow: none;
+	flex: 1;
+	padding: 0 1em;
+	color: #fff;
+	background-color: #473C8B;
+	background-image: none;
+	cursor: pointer;
 }
 
-.lang-select:active, .lang-select:focus{
-	background-color: red;	
+.lang-select::-ms-expand {
+	display: none;
+}
+
+.localization {
+	display: flex;
+	position: absolute;
+  	top: 35px;
+  	right: 160px;
+	width: 60px;
+	height: 30px;
+	border-radius: .25em;
+	overflow: hidden;
+	box-shadow: 2px 2px 2px 1px rgba(245, 245, 245, 0.5);
+}
+ 
+.localization::after {
+	content: '\25BC';
+	position: absolute;
+	top: 5px;
+	right: 0;
+	padding-right: 5px;
+	background-color: #473C8B;
+	transition: .25s all ease;
+	pointer-events: none;
+}
+
+.localization:hover::after {
+	color: #f39c12;
 }
 
 .favorites-films-container {
@@ -130,19 +167,19 @@
 .favorite-film {
 	width: 95%;
 	min-height: 30px;
-	background-image: linear-gradient(90deg, #29004c,#5317ab,#644dd9,#01faff);
+	background-image: linear-gradient(90deg, #29004c,#5317ab,#644dd9,#0858b3);
 	border: solid 1px #01faff;
 	border-radius: 5px;
 	margin-top: 5px;
 }
 
 .favorite-film a {
+	display: inline-block;
 	text-decoration: none;
-	text-align: center;
 	color: white;
 	vertical-align: middle;
 	font-size: 14px;
-	padding: 0 5px;
+	padding: 5px;
 }
 
 #btn-favorites {
@@ -218,10 +255,15 @@
 
 	.header .search-bar {
 		margin: 0 auto;
+		width: 70%;
 	}
 
 	.social-icon {
 		width: 40%;
+	}
+
+	.copyright-text {
+		font-size: 20px;
 	}
 
 }
@@ -229,24 +271,26 @@
 @media only all and (max-width: 425px) {
 
 	.header .logo img {
+		width: 50px;
+		height: 50px;
 		margin-left: 10px;
 	}
 
 	#toggle-theme {
-		width: 50px;
-		right: 175px;
+		top:25px;
+		right: 200px;
 	}
 
-	 .lang-select {
-		width: 50px;
-		right: 120px;
+	.localization {
+		top:25px;
+		right: 130px;
 	}
 
 	.favorites-films-container {
 		width: 110px;
 		font-size: 14px;
-		top: 29px;
-		right: 5px;
+		top: 21px;
+		right: 10px;
 	}
 
 	#btn-favorites {
@@ -261,5 +305,9 @@
 
 	.settings {
 		justify-content: center;
+	}
+
+	.copyright-text {
+		font-size: 16px;
 	}
 }

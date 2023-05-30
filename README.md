@@ -1,6 +1,7 @@
 # yauhenimalakhouski.github.io
 
 An educational project developed in JavaScript.
+The project used StarWars models open-source REST API.
 The Star Wars Movie App.
 
 How to open it:<br>

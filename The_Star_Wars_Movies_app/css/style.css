@@ -2,6 +2,16 @@
 @import url("style_header_footer.css");
 @import url("style_loader.css");
 
+@keyframes skeleton-loading {
+	0% {
+		background-color: hsl(200, 20%, 70%);
+	}
+
+	100% {
+		background-color: hsl(200, 20%, 95%);
+	}
+}
+
 body {
 		margin: 0; 
 		font-family: 'Futura PT', sans-serif;
@@ -13,7 +23,7 @@ body {
 	.main {
 		margin: 0 12.5%;
 		background: var(--primiry-background-color);
-		min-height: 100vh;
+		min-height: 95vh;
 	}
 
 	.sort {
@@ -72,21 +82,6 @@ body {
 		transform: translateY(2px);
 	}
 
-	.loader.hide {
-		display: none;
-	}
-	
-	.loader {
-		display: block;
-		position: absolute;
-		top: calc(50% - 32px);
-		left: calc(50% - 32px);
-		width: 64px;
-		height: 64px;
-		border-radius: 50%;
-		perspective: 800px;
-	}
-
 	.films_wrapper.tile {
 		margin: 50px 20px 0;
 		display: grid;
@@ -111,15 +106,39 @@ body {
 		grid-template-columns: 1fr 2fr;
 	}
 
-	.film {
+	.skeleton {
+		opacity: .7;
+		animation: skeleton-loading 1.5s linear infinite alternate;
+	}
+
+	.skeleton-text {
+		width: 100%;
+		height: 1rem;
+		margin-bottom: .25rem;
+		border-radius: 5px;
+	}
+
+	.film-text .skeleton-text:last-child {
+		margin-bottom: 0;
+		width: 80%;
+	}
+
+	.wrapper {
 		width: 100%;
 	}
 
-	.film .film-cover {
+	.film {
 		width: 100%;
-		height: 100%;
+		box-shadow: var(--film-boxshadow) 0 1.1875rem 2.125rem -0.9375rem;
+		border-radius: 20px;
+	}
+
+	.film .film-cover {
+		width: 98%;
 		object-fit: cover;
 		border-radius: 20px;
+		padding: 1%;
+		aspect-ratio: 2/3;
 	}
 
 	.film a:first-child {
@@ -168,6 +187,14 @@ body {
 		margin-top: 10px;
 	}
 
+	.episode-number.loading {
+		width: 40%;
+	}
+
+	.episode-number.loading .skeleton-text {
+		height: 1.25rem;
+	}
+
 	.film .episode-title {
 		font-size: 20px;
 		font-weight: bold;
@@ -175,18 +202,40 @@ body {
 		margin-bottom: 10px;
 	}
 
+	.episode-title.loading {
+		width: 50%;
+	}
+
+	.episode-title.loading .skeleton-text {
+		height: 1.5rem;
+	}
+
 	.film .release-date {
-		color: rgb(165, 160, 160);
+		color: rgb(165, 160, 160);	
+	}
+
+	.release-date.loading {
+		width: 70%;
 	}
 
 	.film .film-producer {
 		margin-top: 10px;
 		color: rgb(165, 160, 160);
+		padding-bottom: 20px;
+	}
+
+	.film-producer.loading {
+		width: 100%;
 	}
 
 	.film-text {
-		margin-top: 20px;
 		color: var(--secondary-text-color);
+		padding-right: 10px;
+		padding-bottom: 10px;
+	}
+
+	.film-text.loading {
+		width: 100%;
 	}
 
 	.new-film-news {
@@ -197,6 +246,7 @@ body {
 
 	.new-film-news-container{
 		margin: 0 20px;
+		padding-bottom: 50px;
 	}
 
 	.new-film-title {
@@ -206,14 +256,17 @@ body {
 		font-weight: bold;
 	}
 
+	.new-film-news-container a {
+		color: var(--text-highlight);
+	}
+
 	.new-film-news .info {
 		width: 70%;
-		margin: 0 auto;
+		margin: 30px auto;
 		font-size: 24px;
 		border-collapse: collapse;
 		table-layout: fixed;
 		border: solid 1px var(--table-border);
-
 	}
 
 	.info td {
@@ -232,11 +285,7 @@ body {
 		border: none;
 	}
 
-	.new-film-news p {
-		font-size: 20px;
-	}
-
-	.new-film-news img {
+	.new-film-news .banner {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
@@ -252,6 +301,10 @@ body {
 		.new-film-news {
 			margin: 0;
 		}
+
+		.films_wrapper.tile .film .film-text {
+			display: none;
+		}
 	}
 
 	@media only all and (max-width: 1024px) {
@@ -259,10 +312,6 @@ body {
 		.films_wrapper.tile {
 			grid-gap: 20px 15px;
 			grid-template-columns: repeat(2, 1fr);
-		}
-
-		.films_wrapper.tile .film .film-text {
-			display: none;
 		}
 
 		.film .favorite {
@@ -279,12 +328,9 @@ body {
 			font-size: 20px;
 		}
 
-		.timer {
+		td.time-left.timer, 
+		.timer span {
 			font-size: 24px;
-		}
-
-		.new-film-news p {
-			font-size: 18px;
 		}
 	}
 
@@ -339,12 +385,9 @@ body {
 			font-size: 18px;
 		}
 
-		.timer {
+		td.time-left.timer, 
+		.timer span {
 			font-size: 20px;
-		}
-
-		.new-film-news p {
-			font-size: 16px;
 		}
 	}
 
@@ -361,12 +404,10 @@ body {
 
 		.sort-container {
 			width: 70%;
-			
 		}
 
 		.sort_select {
 			width: 100%;
-			
 		}
 
 		.sort-view {
@@ -404,8 +445,8 @@ body {
 			font-size: 16px;
 		}
 
-		.timer {
-			font-size: 18px;
+		td.time-left.timer, 
+		.timer span {
+			font-size: 16px;
 		}
-
 	}

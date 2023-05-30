@@ -2,6 +2,16 @@
 @import url("style_header_footer.css");
 @import url("style_loader.css");
 
+@keyframes skeleton-loading {
+	0% {
+		background-color: hsl(200, 20%, 70%);
+	}
+
+	100% {
+		background-color: hsl(200, 20%, 95%);
+	}
+}
+
 body {
 		margin: 0; 
 		font-family: 'Futura PT', sans-serif;
@@ -13,7 +23,24 @@ body {
 	.main {
 		margin: 0 12.5%;
 		background: var(--primiry-background-color);
-		min-height: 100vh;
+		min-height: 95vh;
+	}
+
+	.skeleton {
+		opacity: .7;
+		animation: skeleton-loading 1.5s linear infinite alternate;
+	}
+
+	.skeleton-text {
+		width: 100%;
+		height: 1.25rem;
+		margin-bottom: .25rem;
+		border-radius: 5px;
+	}
+
+	.film-text .skeleton-text:last-child {
+		margin-bottom: 0;
+		width: 80%;
 	}
 
 	.film-wrapper {
@@ -34,6 +61,7 @@ body {
 	.main-info .film-cover {
 		width: 100%;
 		object-fit: cover;
+		aspect-ratio: 2/3;
 		border-radius: 20px;
 		grid-column: 1/2;
 	}
@@ -51,6 +79,19 @@ body {
 		color: var(--text-highlight);
 	}
 
+	.episode-number.loading {
+		width: 25%;
+	}
+
+	.episode-title.loading {
+		width: 30%;
+	}
+
+	.episode-number.loading .skeleton-text,
+	.episode-title.loading .skeleton-text {
+		height: 2rem;
+	}
+
 	.description {
 		grid-column: 2/3;
 	}
@@ -59,16 +100,29 @@ body {
 		color: #5043af
 	}
 
+	.description h2.loading {
+		width: 25%;
+	}
+
+	h2.loading .skeleton-text {
+		height: 2.5rem;
+	}
+
 	.about-film li {
 		display: flex;
 		gap: 20px;
 		margin-bottom: 20px;
+		width: 100%;
 	}
 
 	.about-film li span:first-child {
 		display: inline-block;
 		width: 30%;
 		color:rgb(134, 130, 130);
+	}
+
+	.about-film li.loading span:last-child {
+		width: 50%;
 	}
 
 	.main-info .film-text {
@@ -165,21 +219,6 @@ body {
 		color:rgb(134, 130, 130);
 	}
 
-	.loader-page {
-		display: block;
-		position: absolute;
-		top: calc(50% - 32px);
-		left: calc(50% - 32px);
-		width: 64px;
-		height: 64px;
-		border-radius: 50%;
-		perspective: 800px;
-	}
-
-	.loader-page.hide {
-		display: none;
-	}
-
 	.loader.show {
 		display: block;
 	}
@@ -195,8 +234,6 @@ body {
 		perspective: 800px;
 	}
 
-	
-	
 	#loadMore {
 		display: none;
 		text-decoration: none;
@@ -233,8 +270,7 @@ body {
 
 	.title-films {
 		margin-left: 10%;
-		color: var(--primiry-text-color);
-		
+		color: var(--primiry-text-color);	
 	}
 
 	.film {
@@ -326,6 +362,15 @@ body {
 		.description {
 			grid-column: 1/2;
 			grid-row: 2/3;
+		}
+
+		.episode-number.loading .skeleton-text,
+		.episode-title.loading .skeleton-text {
+			height: 1.5rem;
+		}
+
+		h2.loading .skeleton-text {
+			height: 2rem;
 		}
 
 		.main-info .film-text {

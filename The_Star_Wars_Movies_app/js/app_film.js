@@ -6,14 +6,6 @@ let charactersAll = [];
 
 renderFilmPage();
 
-async function getDataFilm(episode) {
-  const response = await fetch(
-    `https://desfarik.github.io/star-wars/api/film/${episode}.json`
-  );
-  const data = await response.json();
-  return data;
-}
-
 async function getDataCharacters() {
   const response = await fetch(
     `https://desfarik.github.io/star-wars/api/people/all.json`
@@ -29,9 +21,8 @@ async function getDataCharacters() {
 }
 
 async function renderFilmInfo() {
-  const loaderPage = document.querySelector('.loader-page');
   const film = await getDataFilm(episodeNumber);
-  const container = document.querySelector(".main-info");
+  const filmContainer = document.querySelector(".main-info");
   const release = moment(`${film.release_date}`).format("YYYY MMMM Do");
   const html = `
   <img src="${FILMS_IMG[film.episode_id-1]}" alt='${film.title}' class='film-cover'>
@@ -66,19 +57,17 @@ async function renderFilmInfo() {
         <span>${film.producer}</span>
       </li>
     </ul>
-    
   </div>
   <div class="film-text">${film.opening_crawl}</div>
   `;
-  container.innerHTML = html;
+  filmContainer.innerHTML = html;
   const title = document.querySelector('.main-characters-title');
   title.classList.add('show');
-  loaderPage.classList.add('hide');
 }
 
 function renderFilmTrailer(episode) {
-  const container = document.querySelector('.trailer-container');
-  container.innerHTML = `
+  const trailerContainer = document.querySelector('.trailer-container');
+  trailerContainer.innerHTML = `
   <iframe class="trailer" src='${FILMS_TRAILERS[episode-1]}' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 `;
 }
@@ -99,13 +88,13 @@ function generateCharacters(characters) {
   let count = 0;
   const charactersContainer = document.querySelector('.characters');
   for(let i=0; i<characters.length; i++){
-    if(charactersContainer.childElementCount%8===0 &&charactersContainer.childElementCount!==0){
+    if(charactersContainer.childElementCount%8===0 && charactersContainer.childElementCount!==0){
       i = charactersContainer.childElementCount;
     }
-    if(charactersContainer.childElementCount>=characters.length){
+    if(charactersContainer.childElementCount >= characters.length){
       return;
     }
-    if(count>=8){
+    if(count >= 8){
       return;
     }
     count++;
@@ -114,7 +103,7 @@ function generateCharacters(characters) {
     item.innerHTML = generateCharacter(characters[i]);
     charactersContainer.append(item);
   }
-  if(charactersContainer.childElementCount>=characters.length){
+  if(charactersContainer.childElementCount >= characters.length){
     const btnLoadMore = document.querySelector('#loadMore');
     btnLoadMore.remove();
   }
@@ -122,7 +111,7 @@ function generateCharacters(characters) {
 
 function generateCharacter(character) {
   return `
-      <a href="character.html?characterid=${character.id}">
+      <a href="character.html?characterid=${character.id}&filmid=${episodeNumber}">
         <img src="${character.image}" alt="Not found" class="character-photo">
         <div class="character-description">
           <div class="name">${character.name}</div>
@@ -143,9 +132,9 @@ function generateCharacter(character) {
   `;
 }
 
-async function renderMoreFilms(){
+async function renderMoreFilms() {
   const films = await getDataFilms();
-  const container = document.querySelector('.more-films');
+  const moreFilmsContainer = document.querySelector('.more-films');
   let episodesInterval = [];
   if( episodeNumber === 1 ) {
     episodesInterval.push(episodeNumber+1, episodeNumber+2);
@@ -157,9 +146,9 @@ async function renderMoreFilms(){
   let title = document.createElement('h3');
   title.setAttribute('data-lang-key', 'like-film');
   title.innerHTML = 'If you liked this movie:';
-  container.before(title);
+  moreFilmsContainer.before(title);
   const moreFilms = await films.filter(film => episodesInterval.includes(film.episode_id));
-  moreFilms.map((film) => {
+  moreFilms.forEach(film => {
     let filmContainer = document.createElement('div');
     filmContainer.classList.add('film');
     filmContainer.innerHTML = `
@@ -169,14 +158,18 @@ async function renderMoreFilms(){
       <div>${film.title}</div>
     </a>
     `;
-    container.append(filmContainer);
+    moreFilmsContainer.append(filmContainer);
   });
 }
 
-async function renderFilmPage(){
+async function renderFilmPage() {
   await renderFilmInfo();
-  renderFilmTrailer(episodeNumber)
+  renderFilmTrailer(episodeNumber);
   await renderCaracters();
   renderMoreFilms();
+  removeLoadingStyle();
   changeLagnuage(currentLang);
 }
+
+
+

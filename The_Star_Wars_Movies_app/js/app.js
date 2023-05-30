@@ -1,24 +1,25 @@
+const buttonTile = document.querySelector('.tile-view');
+const buttonTable = document.querySelector('.table-view');
+getSelectedView();
+renderSkeleton();
+
 changeLagnuage(currentLang);
+
 generateAllFilms();
 
 let items;
-
-const buttonTile = document.querySelector('.tile-view');
-const buttonTable = document.querySelector('.table-view');
 
 renderSortSelect();
 
 async function generateAllFilms(){
   const films = await getDataFilms();
   items = await films.slice();
-  getSelectedView();
   renderFilms(films, getSort(localData.sort) || sortEpisodeUp());
 }
 
 async function renderFilms(films, sortFn) {
-  const loader = document.querySelector('.loader');
-  const container = document.querySelector('.films_wrapper');
-  container.innerHTML = '';
+  const filmContainer = document.querySelector('.films_wrapper');
+  filmContainer.innerHTML = '';
   films.sort(sortFn)
   .forEach((film) => {
     const item = document.createElement('div');
@@ -30,22 +31,22 @@ async function renderFilms(films, sortFn) {
       <a href = "film.html?episode=${film.episode_id}">
         <img src='${FILMS_IMG[film.episode_id-1]}' alt='${film.title}' class='film-cover'>
       </a>
-        <div class="description">
-          <div class = "short-description">
-            <div>
-              <a href = "film.html?episode=${film.episode_id}">
-                <div class='episode-number'>Episode ${film.episode_id}</div>
-                <div class='episode-title'>${film.title}</div>
-              </a>
-              <div class='release-date'>Release: ${release}</div>
-              <div class="film-producer">Producers: ${film.producer}</div>
-            </div>
-            <button type="button" class="favorite" data-episode = ${film.episode_id}></button>
+      <div class="description">
+        <div class = "short-description">
+          <div>
+            <a href = "film.html?episode=${film.episode_id}">
+              <div class='episode-number'>Episode ${film.episode_id}</div>
+              <div class='episode-title'>${film.title}</div>
+            </a>
+            <div class='release-date'>Release: ${release}</div>
+            <div class="film-producer">Producers: ${film.producer}</div>
           </div>
-          <div class="film-text">${film.opening_crawl}</div>
+          <button type="button" class="favorite" data-episode = ${film.episode_id}></button>
         </div>
+        <div class="film-text">${film.opening_crawl}</div>
+      </div>
     `;
-    container.append(item);
+    filmContainer.append(item);
   });
   await favorites.forEach((film) => {
     let favoriteFilm = document.querySelector(`.favorite[data-episode = "${film.episode}"]`);
@@ -53,7 +54,7 @@ async function renderFilms(films, sortFn) {
       favoriteFilm.classList.add('active');
     }
   });
-  loader.classList.add('hide');
+  removeLoadingStyle();
 }
 
 async function searchFilms() {
@@ -94,10 +95,10 @@ function renderSortSelect() {
   const container = document.querySelector('.sort-container');
   container.innerHTML = `
   <select onchange="onSortingChange(this)" class="sort_select">
-					<option value="episode-up" data-lang-key="sort-from-first">From the first episode</option>
-					<option value="episode-down" data-lang-key="sort-from-last">From the last episode</option>
-					<option value="film-release-up" data-lang-key="sort-from-old">From old to new</option>
-					<option value="film-release-down" data-lang-key="sort-from-new">From new to old</option>
+		<option value="episode-up" data-lang-key="sort-from-first">From the first episode</option>
+		<option value="episode-down" data-lang-key="sort-from-last">From the last episode</option>
+		<option value="film-release-up" data-lang-key="sort-from-old">From old to new</option>
+		<option value="film-release-down" data-lang-key="sort-from-new">From new to old</option>
 	</select>
   `;
   getSelectedSort();
@@ -162,39 +163,5 @@ function addToFavorites(event) {
 
 let filmContainer = document.querySelector('.films_wrapper');
 filmContainer.addEventListener('click', addToFavorites);
-
-showTimeToRelease();
-
-function showTimeToRelease(){
-  let time = 0;
-  const container = document.querySelector('.time-left');
-  let timeContainer = document.createElement('div');
-  timeContainer.classList.add('timer');
-  container.append(timeContainer);
-  let releaseTime = new Date(2023, 11, 12);
-  let intervalId = setInterval(() => {
-    let time = releaseTime - Date.now();
-
-    // let html = `
-    //   <span data-lang-key="days-left">Days</span>
-    //   <span>: ${moment(time).format('DDD')}, </span>
-    //   <span data-lang-key="hours-left">Hours</span>
-    //   <span>: ${moment(time).format('HH')}, </span>
-    //   <span data-lang-key="minutes-left">Minutes</span>
-    //   <span>: ${moment(time).format('mm')},</span>
-    //   <span data-lang-key="seconds-left">Seconds</span>
-    //   <span>: ${moment(time).format('ss')}.</span>
-    // `;
-    // div.innerHTML = html;
-
-
-
-    timeContainer.textContent = `Days: ${moment(time).format('DDD')}, Hours: ${moment(time).format('HH')},
-     Minutes: ${moment(time).format('mm')}, Seconds: ${moment(time).format('ss')}.`;
-});
-  if(time < 0) {
-    clearInterval(intervalId);
-  }
-}
 
 changeLagnuage(currentLang);

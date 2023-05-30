@@ -1,0 +1,157 @@
+@import url("FuturaPT-Medium/style.css");
+@import url("style_header_footer.css");
+
+body {
+		margin: 0; 
+		font-family: 'Futura PT', sans-serif;
+		font-size: 16px;
+		box-sizing: border-box;
+		background: var(--body-background-color);
+	}
+
+	.main {
+		margin: 0 12.5%;
+		background: var(--primiry-background-color);
+		min-height: 100vh;
+	}
+
+	.new-film-news img {
+		display: block;
+		width: 80%;
+		object-fit: cover;
+		border-radius: 20px;
+		margin: 0 auto;
+	}
+
+	.film .release-date {
+		color: rgb(165, 160, 160);
+	}
+
+	.film .film-producer {
+		margin-top: 10px;
+		color: rgb(165, 160, 160);
+	}
+
+	.film-text {
+		margin-top: 20px;
+		color: var(--secondary-text-color);
+	}
+
+	.new-film-news {
+		margin: 0 12.5%;
+		background: var(--primiry-background-color);
+		color: var(--primiry-text-color);
+	}
+
+	.new-film-news-container{
+		margin: 0 20px;
+	}
+
+	.new-film-title {
+		margin-top: 0;
+		padding-top: 40px;
+		color: var(--text-highlight);
+		font-size: 48px;
+		font-weight: bold;
+	}
+
+	.new-film-news .info {
+		width: 70%;
+		margin: 40px auto;
+		font-size: 24px;
+		border-collapse: collapse;
+		table-layout: fixed;
+		border: solid 1px var(--table-border);
+
+	}
+
+	.info td {
+		border: solid 1px var(--table-border);
+		padding: 0 20px;
+	}
+
+	.info td.time-title {
+		border: none;
+	}
+
+	.info td.time-left {
+		font-size: 30px;
+		color: var(--text-highlight);
+		border: none;
+	}
+
+	.new-film-news p {
+		font-size: 20px;
+	}
+
+	.last_paragraph {
+		margin-bottom: 0;
+		padding-bottom: 40px;
+	}
+
+	@media only all and (max-width: 1440px) {
+
+		.new-film-news {
+			margin: 0;
+		}
+	}
+
+	@media only all and (max-width: 1024px) {
+
+		.new-film-title {
+			font-size: 36px;
+		}
+
+		.new-film-news .info {
+			width: 90%;
+			font-size: 20px;
+		}
+
+		.timer {
+			font-size: 24px;
+		}
+
+		.new-film-news p {
+			font-size: 18px;
+		}
+	}
+
+	@media only all and (max-width: 640px) {
+
+		.new-film-title {
+			font-size: 30px;
+		}
+
+		.new-film-news .info {
+			width: 100%;
+			font-size: 18px;
+		}
+
+		.timer {
+			font-size: 20px;
+		}
+
+		.new-film-news p {
+			font-size: 16px;
+		}
+	}
+
+	@media only all and (max-width: 425px) {
+
+		.new-film-news img {
+			width: 100%;
+		}
+
+		.new-film-title {
+			font-size: 24px;
+		}
+
+		.new-film-news .info {
+			font-size: 16px;
+		}
+
+		td.time-left.timer,
+		.timer span {
+		 font-size: 18px;
+		}
+	}
