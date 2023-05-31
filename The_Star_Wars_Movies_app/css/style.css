@@ -2,6 +2,16 @@
 @import url("style_header_footer.css");
 @import url("style_loader.css");
 
+@-webkit-keyframes skeleton-loading {
+	0% {
+		background-color: hsl(200, 20%, 70%);
+	}
+
+	100% {
+		background-color: hsl(200, 20%, 95%);
+	}
+}
+
 @keyframes skeleton-loading {
 	0% {
 		background-color: hsl(200, 20%, 70%);
@@ -16,7 +26,8 @@ body {
 		margin: 0; 
 		font-family: 'Futura PT', sans-serif;
 		font-size: 16px;
-		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		        box-sizing: border-box;
 		background: var(--body-background-color);
 	}
 
@@ -27,11 +38,15 @@ body {
 	}
 
 	.sort {
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
 		font-size: 20px;
 		color: var(--primiry-text-color);
 		gap: 10px;
-		align-items: center;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
 	}
 
 	.sort_select {
@@ -43,8 +58,12 @@ body {
 	}
 
 	.sort-bar {
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
-		justify-content: space-between;
+		-webkit-box-pack: justify;
+		    -ms-flex-pack: justify;
+		        justify-content: space-between;
 		padding-top: 20px;
 		margin: 0 20px;
 	}
@@ -79,21 +98,30 @@ body {
 	}
 
 	.sort-bar button:active {
-		transform: translateY(2px);
+		-webkit-transform: translateY(2px);
+		    -ms-transform: translateY(2px);
+		        transform: translateY(2px);
 	}
 
 	.films_wrapper.tile {
 		margin: 50px 20px 0;
+		display: -ms-grid;
 		display: grid;
+		-ms-grid-columns: 1fr 75px 1fr 75px 1fr;
 		grid-template-columns: repeat(3, 1fr);
 		grid-gap: 50px 75px;
 		padding-bottom: 50px;
 	}
 
 	.films_wrapper.table {
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
 		width: 90%;
-		flex-direction: column;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
 		gap: 50px;
 		margin: 20px auto 0;
 		padding-bottom: 50px;
@@ -102,13 +130,16 @@ body {
 	.films_wrapper.table .film {
 		width: 80%;
 		margin: 0 auto;
+		display: -ms-grid;
 		display: grid;
+		-ms-grid-columns: 1fr 2fr;
 		grid-template-columns: 1fr 2fr;
 	}
 
 	.skeleton {
 		opacity: .7;
-		animation: skeleton-loading 1.5s linear infinite alternate;
+		-webkit-animation: skeleton-loading 1.5s linear infinite alternate;
+		        animation: skeleton-loading 1.5s linear infinite alternate;
 	}
 
 	.skeleton-text {
@@ -129,40 +160,62 @@ body {
 
 	.film {
 		width: 100%;
-		box-shadow: var(--film-boxshadow) 0 1.1875rem 2.125rem -0.9375rem;
+		-webkit-box-shadow: var(--film-boxshadow) 0 1.1875rem 2.125rem -0.9375rem;
+		        box-shadow: var(--film-boxshadow) 0 1.1875rem 2.125rem -0.9375rem;
 		border-radius: 20px;
 	}
 
 	.film .film-cover {
 		width: 98%;
-		object-fit: cover;
+		-o-object-fit: cover;
+		   object-fit: cover;
 		border-radius: 20px;
 		padding: 1%;
 		aspect-ratio: 2/3;
 	}
 
 	.film a:first-child {
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
-		flex-direction: column;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
 		text-decoration: none;
 		color: var(--primiry-text-color);
 		gap: 10px;
 	}
 
 	.film .description {
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
-		flex-direction: column;
-		align-items: center;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
 		gap: 20px;
 		margin-left: 20px;
 	}
 
 	.film .short-description {
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
 		width: 100%;
-		align-self: self-start;
-		justify-content: space-between;
-		align-items: center;
+		-ms-flex-item-align: self-start;
+		    -ms-grid-row-align: self-start;
+		    align-self: self-start;
+		-webkit-box-pack: justify;
+		    -ms-flex-pack: justify;
+		        justify-content: space-between;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
 		gap: 5px;
 	}
 
@@ -288,7 +341,8 @@ body {
 	.new-film-news .banner {
 		width: 100%;
 		height: 100%;
-		object-fit: cover;
+		-o-object-fit: cover;
+		   object-fit: cover;
 		border-radius: 20px;
 	}
 
@@ -311,6 +365,7 @@ body {
 
 		.films_wrapper.tile {
 			grid-gap: 20px 15px;
+			-ms-grid-columns: 1fr 15px 1fr;
 			grid-template-columns: repeat(2, 1fr);
 		}
 
@@ -394,7 +449,10 @@ body {
 	@media only all and (max-width: 425px) {
 
 		.sort-bar {
-			flex-direction: column;
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+			    -ms-flex-direction: column;
+			        flex-direction: column;
 			gap: 20px;
 		}
 
@@ -411,17 +469,21 @@ body {
 		}
 
 		.sort-view {
-			align-self: flex-end;
+			-ms-flex-item-align: end;
+			    align-self: flex-end;
 		}
 
 		.films_wrapper.tile {
+			-ms-grid-columns: 1fr;
 			grid-template-columns: 1fr;
 			margin: 30px 20px 0;
 			padding-bottom: 30px;
 		}
 
 		.films_wrapper.table {
+			display: -ms-grid;
 			display: grid;
+			-ms-grid-columns: 1fr;
 			grid-template-columns: 1fr;
 			margin: 30px 20px 0;
 			padding-bottom: 30px;

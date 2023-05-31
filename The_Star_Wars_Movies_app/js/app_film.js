@@ -166,7 +166,7 @@ async function renderFilmPage() {
   await renderFilmInfo();
   renderFilmTrailer(episodeNumber);
   await renderCaracters();
-  renderMoreFilms();
+  await renderMoreFilms();
   removeLoadingStyle();
   changeLagnuage(currentLang);
 }
