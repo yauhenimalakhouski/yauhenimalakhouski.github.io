@@ -1,6 +1,7 @@
 :root {
 	--header-footer-color: black;
 	--primiry-background-color: rgb(20, 20, 20, 0.95);
+	--film-background-color: black;
 	--body-background-color: linear-gradient(90deg, #000000,#4f7a28,#000000);
 	--primiry-text-color: azure;
 	--secondary-text-color: white;
@@ -16,6 +17,7 @@
 :root[theme='light'] {
 	--header-footer-color: #b2c1d8;
 	--primiry-background-color: #d1d9e7;
+	--film-background-color: #d1d9e7;
 	--body-background-color: linear-gradient(90deg, #f6f7f8,#e1e8f2,#d9e1ee);
 	--primiry-text-color: rgba(8, 8, 8, 0.95);
 	--secondary-text-color: black;

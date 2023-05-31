@@ -163,6 +163,7 @@ body {
 		-webkit-box-shadow: var(--film-boxshadow) 0 1.1875rem 2.125rem -0.9375rem;
 		        box-shadow: var(--film-boxshadow) 0 1.1875rem 2.125rem -0.9375rem;
 		border-radius: 20px;
+		background: var(--film-background-color);
 	}
 
 	.film .film-cover {
