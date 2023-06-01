@@ -390,6 +390,13 @@ body {
 		}
 	}
 
+	@media only all and (max-width: 800px) {
+		
+		.films_wrapper.table .film .film-text {
+			display: none;
+		}
+	}
+
 	@media only all and (max-width: 640px) {
 		.sort {
 			font-size: 16px;
@@ -397,10 +404,6 @@ body {
 
 		.sort_select {
 			height: 30px;
-		}
-
-		.films_wrapper.table .film .film-text {
-			display: none;
 		}
 
 		.films_wrapper.table {

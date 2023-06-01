@@ -339,6 +339,7 @@ body {
 		width: 100%;
 		-o-object-fit: cover;
 		   object-fit: cover;
+		   aspect-ratio: 2/3;
 		border-radius: 10px;
 	}
 
